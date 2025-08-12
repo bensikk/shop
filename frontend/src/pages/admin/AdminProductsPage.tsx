@@ -163,11 +163,42 @@ export default function AdminProductsPage() {
           </div>
           <div className="space-y-1 md:col-span-2">
             <label className="text-sm font-medium">Зображення товару</label>
-            <div className="flex gap-2">
-              <Input placeholder="Посилання на зображення (необовʼязково)" value={form.imageUrl} onChange={(e) => setForm({ ...form, imageUrl: e.target.value })} />
-              <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+            <div className="flex flex-col md:flex-row gap-2 items-start md:items-center">
+              <Input
+                placeholder="Посилання на зображення (необовʼязково)"
+                value={form.imageUrl}
+                onChange={(e) => setForm({ ...form, imageUrl: e.target.value })}
+                className="md:w-2/3"
+              />
+              <label>
+                <Button type="button" variant="outline" className="whitespace-nowrap">
+                  Додати зображення
+                </Button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => setFile(e.target.files?.[0] || null)}
+                  style={{ display: 'none' }}
+                />
+              </label>
+              {file && (
+                <img
+                  src={URL.createObjectURL(file)}
+                  alt="preview"
+                  className="h-12 w-12 object-cover rounded border ml-2"
+                />
+              )}
+              {!file && form.imageUrl && (
+                <img
+                  src={form.imageUrl}
+                  alt="preview"
+                  className="h-12 w-12 object-cover rounded border ml-2"
+                />
+              )}
             </div>
-            <p className="text-xs text-muted-foreground">Можна вказати посилання або завантажити файл</p>
+            <p className="text-xs text-muted-foreground">
+              Можна вказати посилання або завантажити файл
+            </p>
           </div>
           <div className="space-y-1">
             <label className="text-sm font-medium">Категорія</label>
