@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Trash2, Minus, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
