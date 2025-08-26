@@ -1,8 +1,6 @@
-import React from 'react'
 import { Link, Routes, Route, Navigate } from 'react-router-dom'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Users, Package, ShoppingCart, Settings } from 'lucide-react'
 import AdminOrdersPage from '@/pages/admin/AdminOrdersPage'
 import AdminProductsPage from '@/pages/admin/AdminProductsPage'
 import AdminCategoriesPage from '@/pages/admin/AdminCategoriesPage'
