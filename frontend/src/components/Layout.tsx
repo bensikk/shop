@@ -13,7 +13,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const { user, logout } = useAuth()
+  const { user } = useAuth()
   const [mobileOpen, setMobileOpen] = useState(false)
   const { getTotalItems } = useCart()
   const location = useLocation()
