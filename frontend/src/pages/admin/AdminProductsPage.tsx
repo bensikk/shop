@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -20,13 +20,13 @@ type NewProduct = {
 export default function AdminProductsPage() {
   const { toast } = useToast()
 
-  const { data: productsResp, refetch: refetchProducts, isLoading: loadingProducts } = useQuery({
+  const { data: productsResp, refetch: refetchProducts } = useQuery({
     queryKey: ['admin-products'],
     queryFn: () => api.getProducts(),
   })
   const products = (productsResp?.data as any[]) || []
 
-  const { data: categoriesResp, isLoading: loadingCategories } = useQuery({
+  const { data: categoriesResp} = useQuery({
     queryKey: ['admin-categories-for-products'],
     queryFn: () => api.getCategories(),
   })
